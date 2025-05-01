@@ -102,4 +102,4 @@ main() {
     log "[✔] Security Audit Completed: $(date)"
 }
 
-main "$@"
+
