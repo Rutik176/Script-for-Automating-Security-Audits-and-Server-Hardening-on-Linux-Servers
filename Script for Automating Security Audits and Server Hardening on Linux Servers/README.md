@@ -44,6 +44,3 @@ Optional: Add your own checks to `config/custom_checks.conf`
 
 ---
 
-## 📄 License
-
-MIT License – Free to use, modify, and distribute.
