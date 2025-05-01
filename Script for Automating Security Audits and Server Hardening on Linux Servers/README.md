@@ -1,38 +1,49 @@
-# Linux Security Audit and Hardening Script
+# 🔐 Linux Security Audit & Hardening Script
 
-## Overview
+## 📝 Description
+This script performs a security audit on a Linux system and applies basic hardening measures. It checks for misconfigurations, weak policies, and potential vulnerabilities, and then applies recommended system hardening steps.
 
-This Bash script performs an automated security audit and applies basic server hardening for Linux systems. It is designed to be modular, customizable, and easy to use across multiple servers.
+---
 
-## Features
+## 📁 Project Structure
 
-- User and group audits
-- File and directory permission scans
-- Running services check
-- SSH, firewall, and IPv6 configuration
-- SUID/SGID and world-writable files detection
-- Public vs private IP reporting
-- Log monitoring (SSH failures)
-- Automatic updates configuration
-- Extensible custom checks
+```
+.
+├── linux_audit_hardening.sh    # Main script file
+├── config/
+│   └── custom_checks.conf       # Optional: your own shell commands for auditing
+└── logs/
+    └── audit_report.txt         # Output report
+```
 
-# Usage
+---
 
-# Prerequisites
+## ✅ What It Does
 
-- Bash
-- Root privileges
-- `unattended-upgrades`, `iptables` or `ufw`, `systemd`
+1. **Root Check** – Ensures script runs with root privileges.
+2. **User & Group Audit** – Detects UID 0 non-root users and accounts with no passwords.
+3. **Permission Audit** – Finds world-writable files and SUID/SGID binaries.
+4. **Services Audit** – Lists active services and SSH status.
+5. **Firewall Check** – Displays current firewall rules using iptables or UFW.
+6. **IP Address Summary** – Lists IPv4 configuration.
+7. **Update Check** – Lists packages with security updates.
+8. **SSH Login Failures** – Shows recent failed login attempts via SSH.
+9. **Hardening Actions** – Disables SSH password auth, disables IPv6, and enables auto-updates.
+10. **Custom Checks** – Reads and executes commands from `custom_checks.conf`.
 
-# Run the Script
+---
+
+## 🔧 How to Use
 
 ```bash
-sudo bash audit.sh
+chmod +x linux_audit_hardening.sh
+sudo ./linux_audit_hardening.sh
+```
 
-# Output
- The audit results are saved to:
+Optional: Add your own checks to `config/custom_checks.conf`
 
-bash
-Copy
-Edit
-logs/audit_report.txt
+---
+
+## 📄 License
+
+MIT License – Free to use, modify, and distribute.
